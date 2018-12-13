@@ -11,7 +11,7 @@ public static class TestHelpers
         {
             Assert.InRange(expected - actual, -Delta, Delta);
         }
-        catch (InRangeException e)
+        catch (InRangeException)
         {
             throw new EqualException(expected, actual);
         }
