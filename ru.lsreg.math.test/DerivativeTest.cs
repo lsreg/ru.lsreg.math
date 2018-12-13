@@ -7,7 +7,7 @@ namespace ru.lsreg.math.test
     public class DerivativeTest
     {
         [Fact]
-        public void Test1()
+        public void TestDerivative()
         {
             Func<double, double> function = x => x * x;
             double point = 1;

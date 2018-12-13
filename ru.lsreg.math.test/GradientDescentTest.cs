@@ -5,7 +5,7 @@ using ru.lsreg.math;
 
 namespace ru.lsreg.math.test
 {
-    public class GradientDescenteTest
+    public class GradientDescentTest
     {
         private double TestFunction(List<double> point)
         {
@@ -17,7 +17,7 @@ namespace ru.lsreg.math.test
             return result;
         }
         [Fact]
-        public void Test1()
+        public void TestGradientDescent()
         {
             Func<double, double> function = x => x * x;
             double expectedPointValue = 2;

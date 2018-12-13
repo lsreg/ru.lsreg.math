@@ -11,8 +11,7 @@ namespace ru.lsreg.math
         }
 
         public double GetDerivative(Func<double, double> function, double point, double delta) {
-            double result = (function(point + delta) - function(point - delta)) / (2 * delta);
-            return result;
+            return (function(point + delta) - function(point - delta)) / (2 * delta);
         }
     }
 }
