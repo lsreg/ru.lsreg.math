@@ -24,5 +24,26 @@ namespace ru.lsreg.math.test
             TestHelpers.AssertDoubleEqual(multipliedMatrix[1, 1], 0);
             TestHelpers.AssertDoubleEqual(multipliedMatrix[1, 2], 2.1);
         }
+
+        [Fact]
+        public void TestMultiplyMatrixByMatrix()
+        {
+            var testMatrix = new Matrix(1, 2);
+            testMatrix[0, 0] = 1;
+            testMatrix[0, 1] = -1;
+            var testMatrix2 = new Matrix(2, 3);
+            testMatrix2[0, 0] = 1;
+            testMatrix2[0, 1] = -1;
+            testMatrix2[0, 2] = 7;
+            testMatrix2[1, 0] = 1.1;
+            testMatrix2[1, 1] = 0;
+            testMatrix2[1, 2] = 1;
+            var multipliedMatrix = testMatrix * testMatrix2;
+            Assert.Equal(multipliedMatrix.M, testMatrix.M);
+            Assert.Equal(multipliedMatrix.N, testMatrix2.N);            
+            TestHelpers.AssertDoubleEqual(multipliedMatrix[0, 0], -0.1);
+            TestHelpers.AssertDoubleEqual(multipliedMatrix[0, 1], -1);
+            TestHelpers.AssertDoubleEqual(multipliedMatrix[0, 2], 6);
+        }
     }
 }

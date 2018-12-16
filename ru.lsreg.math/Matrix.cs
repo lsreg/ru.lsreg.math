@@ -45,4 +45,18 @@ public class Matrix {
         result.ProcessFunctionOverData((i, j) => result[i,j] = matrix[i,j] * value);
         return result;
     }
+
+    public static Matrix operator* (Matrix matrix, Matrix matrix2) 
+    {
+        if (matrix.N != matrix2.M) {
+            throw new ArgumentException("matrixes can not be multiplied");
+        }
+        var result = new Matrix(matrix.M, matrix2.N);
+        result.ProcessFunctionOverData((i, j) => {
+            for(var k = 0; k < matrix.N; k++) {
+                result[i, j] += matrix[i, k] * matrix2[k, j];
+            }
+        });
+        return result;
+    }
 }
