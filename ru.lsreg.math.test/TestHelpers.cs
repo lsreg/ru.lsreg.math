@@ -4,12 +4,11 @@ using System;
 
 public static class TestHelpers 
 {
-    private const double Delta = 0.001;
     public static void AssertDoubleEqual(double expected, double actual)
     {
         try
         {
-            Assert.InRange(expected - actual, -Delta, Delta);
+            Assert.InRange(expected - actual, -Constants.DoubleComparisonDelta, Constants.DoubleComparisonDelta);
         }
         catch (InRangeException)
         {
