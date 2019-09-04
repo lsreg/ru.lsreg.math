@@ -86,6 +86,29 @@ public class Matrix
         return result;
     }
 
+    public Matrix CreateInvertibleMatrix()
+    {
+        if (this.M != this.N)
+            return null;
+        var determinant = CalculateDeterminant();
+        if (Math.Abs(determinant) < Constants.DoubleComparisonDelta)
+            return null;
+
+        var result = new Matrix(M, M);
+        ProcessFunctionOverData((i, j) => 
+        {
+            result[i, j] = ((i + j) % 2 == 1 ? -1 : 1) * CalculateMinor(i, j) / determinant;
+        });
+
+        result = result.CreateTransposeMatrix();
+        return result;
+    }
+
+    private double CalculateMinor(int i, int j)
+    {
+        return CreateMatrixWithoutColumn(j).CreateMatrixWithoutRow(i).CalculateDeterminant();
+    }
+
     private Matrix CreateMatrixWithoutRow(int row)
     {
         if (row < 0 || row >= this.M)

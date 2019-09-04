@@ -7,6 +7,24 @@ namespace ru.lsreg.math.test
     public class MatrixTest
     {
         [Fact]
+        public void TestInversibleMatrix()
+        {
+            var testMatrix = new Matrix(3, 3);
+            testMatrix[0, 0] = 1;
+            testMatrix[0, 1] = 3;
+            testMatrix[0, 2] = -2;
+            testMatrix[1, 0] = 1;
+            testMatrix[1, 1] = 0;
+            testMatrix[1, 2] = 7;
+            testMatrix[2, 0] = 1;
+            testMatrix[2, 1] = 1;
+            testMatrix[2, 2] = -1;
+
+            var inversibleMatrix = testMatrix.CreateInvertibleMatrix();
+            TestHelpers.AssertMatrixEqual(testMatrix * inversibleMatrix, Matrix.CreateIdentityMatrix(3));
+        }
+
+        [Fact]
         public void TestMultiplyMatrixByNumber()
         {
             var testMatrix = new Matrix(2, 3);
