@@ -4,4 +4,19 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>ru.lsreg.math</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Mikhail Gubanov</Authors>
+    <Company>lsreg.ru</Company>
+    <PackageProjectUrl>http://lsreg.ru</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lsreg/ru.lsreg.math</RepositoryUrl>
+    <PackageDescription>
+Library made for common math operations:
+- Derivative calculation
+- Gradient Descent
+- Matrix operations: sum, multiplication, transposing, determinant calculation, invertible matrix calculation
+    </PackageDescription>
+    
+  </PropertyGroup>
 </Project>
